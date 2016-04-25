@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.UserMapper">
+  <!--&lt;!&ndash;cache&ndash;&gt;-->
+  <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"  >-->
+    <!--<property name="timeToIdleSeconds" value="3600"/>&lt;!&ndash;1 hour&ndash;&gt;-->
+    <!--<property name="timeToLiveSeconds" value="3600"/>&lt;!&ndash;1 hour&ndash;&gt;-->
+    <!--<property name="maxEntriesLocalHeap" value="1000"/>-->
+    <!--<property name="maxEntriesLocalDisk" value="10000000"/>-->
+    <!--<property name="memoryStoreEvictionPolicy" value="LRU"/>-->
+  <!--</cache>-->
+
+  <resultMap id="BaseResultMap" type="Entity.User">
+    <!--<constructor>-->
+      <!--<idArg column="userid" javaType="java.lang.Integer" jdbcType="INTEGER" />-->
+      <!--<arg column="username" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+    <!--</constructor>-->
+    <id column="userid" property="userId"/>
+    <result column="username" property="userName"/>
+    <result column="password" property="password"/>
+  </resultMap>
+
+  <!--sql片段-->
+  <sql id="Base_Column_List">
+    userid, username, password
+  </sql>
+
+  <select id="getUserById" parameterType="int" resultMap="BaseResultMap">
+    select
+     <include refid="Base_Column_List"/>
+    from user where userid = #{value}
+  </select>
+
+  <select id="getAllUser" resultType="Entity.User">
+    select
+    *
+    from user
+  </select>
+</mapper>

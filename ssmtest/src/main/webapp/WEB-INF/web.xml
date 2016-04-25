@@ -39,6 +39,21 @@
     </init-param>
   </filter>
 
+
+  <!-- 指定Spring配置文件位置 -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring/spring-mybatis.xml</param-value>
+  </context-param>
+  <!-- Spring监听器 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <!-- 防止Spring内存溢出监听器 -->
+  <listener>
+    <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+  </listener>
+
   <welcome-file-list>
     <welcome-file>JSP/form.jsp</welcome-file>
   </welcome-file-list>

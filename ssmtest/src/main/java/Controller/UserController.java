@@ -1,4 +1,4 @@
-package com.ssm.controller;
+package Controller;
 
 import Entity.User;
 import Service.UserService;
@@ -7,7 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/4/24.
@@ -15,6 +17,7 @@ import java.io.UnsupportedEncodingException;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @Resource
     private UserService userService;
     @RequestMapping("/userinfo/binding1")
     public ModelAndView binding1(Integer UserId)//使用Integer包装类型的int可以使参数绑定不会有异常,int对表单参数传过来更严格
@@ -30,6 +33,16 @@ public class UserController {
         ModelAndView modelAndView=new ModelAndView();
         modelAndView.setViewName("user");
         modelAndView.addObject("user",user);
+        return modelAndView;
+    }
+    @RequestMapping("/getuser")
+    public ModelAndView showUser(Integer id)
+    {
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("userlist");
+//        User user=userService.getUserById(id);
+        List<User> list=userService.getAllUser();
+        modelAndView.addObject("userlist",list);
         return modelAndView;
     }
 }

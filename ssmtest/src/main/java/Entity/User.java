@@ -4,9 +4,10 @@ package Entity;
  * Created by Administrator on 2016/4/24.
  */
 public class User {
+    private Integer userId;
     private String userName;
     private String password;
-    private Integer userId;
+
 
     public String getUserName() {
         return userName;
