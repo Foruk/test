@@ -26,9 +26,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="myssm" target="1.5" />
-      <module name="ssmtest" target="1.7" />
-      <module name="ssmtext" target="1.5" />
+      <module name="ssmtest" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

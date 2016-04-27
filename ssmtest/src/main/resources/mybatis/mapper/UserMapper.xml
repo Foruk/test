@@ -37,4 +37,26 @@
     *
     from user
   </select>
+
+  <!-- 如果实体属性与数据库字段不一样，需要取别名。 resultmap-->
+  <select id="getUserByPage" resultMap="BaseResultMap">
+  select * FROM
+  USER
+  <where>
+    <!--<if test="#{user.userId}!=null and #{user.userId}!=''">-->
+    <!--and userid=#{user.userId}-->
+    <!--</if>-->
+    <if test="#{user.userName}!=null and #{user.userName}!=''">
+      and username=#{user.userName}
+    </if>
+    <if test="#{user.password}!=null and #{user.password}!=''">
+      and password=#{user.password}
+    </if>
+  </where>
+  LIMIT #{startrow},#{pagesize}
+  </select>
+
+  <!--<foreach collection="list" item="classIdList"  open="(" separator="," close=")">-->
+    <!--#{classIdList}-->
+  <!--</foreach>-->
 </mapper>

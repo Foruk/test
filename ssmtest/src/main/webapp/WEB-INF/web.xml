@@ -55,6 +55,6 @@
   </listener>
 
   <welcome-file-list>
-    <welcome-file>JSP/form.jsp</welcome-file>
+    <welcome-file>jsp/form.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

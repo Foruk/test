@@ -26,4 +26,11 @@ public class UserServiceImpl implements UserService {
         return userMapper.getAllUser();
     }
 
+    @Override
+    public List<User> getUserByPage(User user, int currenPage, int pageSize) {
+       int startrow=(currenPage-1)*pageSize;
+       return userMapper.getUserByPage(user,startrow,pageSize);
+    }
+
+
 }

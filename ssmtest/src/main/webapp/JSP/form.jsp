@@ -21,7 +21,7 @@
         <input type="text" placeholder="用户id" name="id">
         <input type="submit" value="提交">
     </form>
-    <a href="../user/getuser">查看所有user</a>
+    <a href="../user/showUser">查看所有user</a>
 </body>
 </html>
 
