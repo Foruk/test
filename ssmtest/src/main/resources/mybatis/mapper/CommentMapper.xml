@@ -12,6 +12,12 @@
       <arg column="message" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
+  <select id="selectByPrimaryKey" resultType="Entity.Comment">
+    select * from comment
+    <where>
+      id =${id}
+    </where>
+  </select>
   <sql id="Base_Column_List" >
     <!--
       WARNING - @mbggenerated

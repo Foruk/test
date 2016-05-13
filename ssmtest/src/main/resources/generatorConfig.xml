@@ -11,12 +11,19 @@
 
     <!-- 一个数据库已个context-->
     <context id="default" >
-
+        <!--
+        首先是autoDelimitKeywords，当表名或者字段名为SQL关键字的时候，
+        可以设置该属性为true，MBG会自动给表名或字段名添加**分隔符**。
+        -->
+        <property name="autoDelimitKeywords" value="true"/>
 
         <!-- optional，旨在创建class时，对注释进行控制 -->
         <commentGenerator>
             <property name="suppressDate" value="true" />
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
         </commentGenerator>
+
 
 
         <!--jdbc的数据库连接 -->
@@ -38,7 +45,7 @@
             <property name="enableSubPackages" value="false"/>
 
             <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
-            <property name="immutable" value="true"/>
+            <property name="immutable" value="false"/>
 
             <!-- 给Model添加一个父类 -->
             <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
@@ -81,7 +88,13 @@
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false">
-
+            <generatedKey column="id" sqlStatement="Mysql"/>
         </table>
+
+        <!--
+        <table tableName="%">
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+        -->
     </context>
 </generatorConfiguration>
